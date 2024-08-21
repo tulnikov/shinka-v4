@@ -1,8 +1,8 @@
-import styles from './style.module.css'
+import styles from './Header.module.css'
 
 function Header() {
     return <div className={styles.header}>
-        <div>Баланс</div>
+        <div>🛞 Баланс</div>
         <div>👨‍🦱</div>
     </div>
 }
