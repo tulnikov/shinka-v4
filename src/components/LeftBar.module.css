@@ -1,5 +1,5 @@
 .leftBar{
     width: 15rem;
-    height: 1080px;
+    min-height: 1080px;
     background-color: #212529;
 }

@@ -3,20 +3,25 @@ import TopBar from './TopBar';
 import TitlePage from './TitlePage';
 import Card from './Card';
 import SpisokUslug from './SpisokUslug';
+import Uslugi from './Uslugi';
+import {useState} from "react";
 
 
 export default function RightBar() {
+
+    const [uslugi, setUslugi] = useState([]);
+
+    function handleClickUsluga(item) {
+        setUslugi(uslugi => [...uslugi, item]);
+    }
+
+
     return <div className={styles.rightBar}>
         <TopBar/>
         <TitlePage>Шиномонтаж</TitlePage>
         <div className={styles.cards}>
-            <Card>
-                <SpisokUslug/>
-            </Card>
-            <Card>Card-2</Card>
-            <Card>Card-3</Card>
-            <Card>Card-4</Card>
-
+            <SpisokUslug onClickUsluaga={handleClickUsluga}/>
+            <Uslugi uslugi={uslugi}/>
         </div>
 
     </div>

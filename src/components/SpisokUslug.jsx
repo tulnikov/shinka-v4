@@ -1,47 +1,10 @@
 import styles from './SpisokUslug.module.css';
 import {useState} from 'react'
+import spisokUslug from '../dataPrice'
+import Card from './Card'
 
-const spisokUslug = [
-    {
-        id: 1,
-        title: "Шиномнтаж",
-        diameter: 16,
-        typeCar: 1,
-        price: 100,
-    }, {
-        id: 2,
-        title: "Балансировка",
-        diameter: 16,
-        typeCar: 1,
-        price: 200,
-    }, {
-        id: 3,
-        title: "Правка литого диска",
-        diameter: 16,
-        typeCar: 1,
-        price: 3000,
-    },
-    {
-        id: 4,
-        title: "Шиномнтаж",
-        diameter: 16,
-        typeCar: 2,
-        price: 100,
-    }, {
-        id: 5,
-        title: "Балансировка",
-        diameter: 15,
-        typeCar: 2,
-        price: 200,
-    }, {
-        id: 6,
-        title: "Правка литого диска",
-        diameter: 16,
-        typeCar: 3,
-        price: 3000,
-    },
-]
-export default function SpisokUslug() {
+
+export default function SpisokUslug({onClickUsluaga}) {
 
     const [diameter, setDiameter] = useState(16);
     const [typeAuto, setTypeAuto] = useState(1);
@@ -49,39 +12,36 @@ export default function SpisokUslug() {
 
     function handleQueryChange(e) {
         setQuery(e.target.value);
-
-
     }
 
     function handleClearBtn() {
         setQuery('')
     }
 
-    return <div>
+    return <Card>
         <div className={styles.bar}>
             <div className={styles.barItem}>🔍 <input value={query}
                                                      onChange={handleQueryChange}
                                                      type='text'
-                                                     placeholder='Услуги'/>
+                                                     placeholder='Услуги'
+                                                     style={{width: "350px"}}/>
                 {query && <span onClick={handleClearBtn}>❌</span>}
             </div>
-            <select
-                defaultValue={typeAuto}
-                onChange={(e) => {
-                    setTypeAuto(Number(e.target.value));
-                }}
-                className={styles.barItem}>
+            <select defaultValue={typeAuto}
+                    onChange={(e) => {
+                        setTypeAuto(Number(e.target.value));
+                    }}
+                    className={styles.barItem}>
                 <option value={1}>Седан</option>
                 <option value={2}>Кроссовер</option>
                 <option value={3}>Коммерческий</option>
             </select>
 
-            <select
-                defaultValue={diameter}
-                onChange={(e) => {
-                    setDiameter(Number(e.target.value))
-                }}
-                className={styles.barItem}>
+            <select defaultValue={diameter}
+                    onChange={(e) => {
+                        setDiameter(Number(e.target.value))
+                    }}
+                    className={styles.barItem}>
                 < option value={13}>13</option>
                 <option value={14}>14</option>
                 <option value={15}>15</option>
@@ -97,19 +57,20 @@ export default function SpisokUslug() {
 
         </div>
 
-        {
-            spisokUslug.map((item) => (
-                (item.diameter === diameter && item.typeCar === typeAuto) ? (
+        <div className={styles.list}>
+            {spisokUslug.map(item => (
+                (item.title.toLowerCase().includes(query.toLowerCase()) && item.diameter === diameter && item.typeAuto === typeAuto) ? (
                     <div
                         className={styles.item}
                         key={item.id}
                         onClick={() => {
-                            alert(item.id)
+                            onClickUsluaga(item)
                         }}>
                         <div className={styles.itemTitle}>{item.title}</div>
                         <div className={styles.itemPrice}>{item.price}</div>
                     </div>
                 ) : null))
-        }
-    </div>
+            }
+        </div>
+    </Card>
 }

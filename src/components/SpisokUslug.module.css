@@ -7,30 +7,35 @@
 
 .item:hover {
     cursor: pointer;
+    background-color: #373C4A;
+    border-radius: 13px;
 }
 
 .itemTitle {
+    padding-left: 16px;
 
 }
 
 .itemPrice {
-
+    padding-right: 16px;
 }
 
-.bar{
+.bar {
     display: flex;
     justify-content: space-between;
     gap: 1rem;
     margin-bottom: 1rem;
     font-size: 1.3rem;
-
-
 }
 
-.barItem{
+.barItem {
     background-color: #373C4A;
     border-radius: 13px;
     padding: 0.4rem;
     cursor: pointer;
 }
 
+.list {
+    max-height: 300px;
+    overflow-y: scroll;
+}
