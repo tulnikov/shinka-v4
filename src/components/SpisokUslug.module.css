@@ -1,0 +1,36 @@
+.item {
+    font-size: 1.3rem;
+    line-height: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.item:hover {
+    cursor: pointer;
+}
+
+.itemTitle {
+
+}
+
+.itemPrice {
+
+}
+
+.bar{
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 1.3rem;
+
+
+}
+
+.barItem{
+    background-color: #373C4A;
+    border-radius: 13px;
+    padding: 0.4rem;
+    cursor: pointer;
+}
+

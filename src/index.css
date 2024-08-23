@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
     border: none;
+
 }
 
 *,
@@ -12,11 +13,11 @@
 
 /* Links */
 
-a, a:link, a:visited  {
+a, a:link, a:visited {
     text-decoration: none;
 }
 
-a:hover  {
+a:hover {
     text-decoration: none;
 }
 
@@ -86,3 +87,4 @@ label {
 legend {
     display: block;
 }
+

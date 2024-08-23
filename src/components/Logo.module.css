@@ -1,0 +1,10 @@
+.logo{
+    background-color: #DC3F3B;
+    color: white;
+    padding: 0.5rem;
+    height: 3rem;
+}
+
+.logo span{
+    font-size: 30px;
+}
