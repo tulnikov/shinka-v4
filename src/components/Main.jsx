@@ -2,10 +2,10 @@ import styles from './Main.module.css';
 
 function Main() {
     return <div className={styles.main}>
-        <div className={styles.pageTitle}>Шиномонтаж</div>
-        <div>
-            <div>left bar</div>
-            <div>right bar</div>
+        <span className={styles.pageTitle}>Шиномонтаж</span>
+        <div className={styles.cards}>
+            <div className={styles.card}>left bar</div>
+            <div className={styles.card}>right bar</div>
         </div>
     </div>
 }
