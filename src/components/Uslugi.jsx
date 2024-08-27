@@ -4,6 +4,9 @@ import {useState} from "react";
 
 export default function Uslugi({uslugi, onDeleteUsluga}) {
 
+    let totalPrice = 0
+
+
 
     return <Card>
         <div className={styles.bar}>
@@ -16,15 +19,24 @@ export default function Uslugi({uslugi, onDeleteUsluga}) {
             <Usluga
                 item={item}
                 key={item.id}
-                onDeleteUsluga={onDeleteUsluga}/>
+                onDeleteUsluga={onDeleteUsluga}
+
+            />
         ))}
+        <span style={{color: "green"}}>🤑 Total price: {0}</span>
     </Card>
 }
 
-function Usluga({
-                    item, onDeleteUsluga
-                }) {
+function Usluga({item, onDeleteUsluga}) {
     const [value, setValue] = useState(1);
+
+    const [itemTotal, setItemTotal] = useState(item.price);
+
+    function handleChangeQty(e) {
+        setValue(e.target.value)
+        setItemTotal(e.target.value * item.price);
+
+    }
 
 
     return <div className={styles.item}>
@@ -32,10 +44,10 @@ function Usluga({
         <span>
             <input type='number'
                    min={1} value={value}
-                   onChange={(e) => setValue(e.target.value)}
+                   onChange={handleChangeQty}
                    className={styles.inputQty}
             /></span>
-        <span>{item.price * value}</span>
+        <span>{itemTotal}</span>
         <span
             className={styles.closeBtn}
             onClick={() => onDeleteUsluga(item)}>❌</span>

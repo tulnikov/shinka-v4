@@ -23,7 +23,6 @@ export default function RightBar() {
     let totalPrice = uslugi.reduce((acc, cur) => acc + cur.price, 0);
 
 
-
     return <div className={styles.rightBar}>
         <TopBar/>
         <TitlePage>Шиномонтаж</TitlePage>
