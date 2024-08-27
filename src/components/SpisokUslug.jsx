@@ -6,7 +6,7 @@ import Card from './Card'
 
 export default function SpisokUslug({onClickUsluaga}) {
 
-    const [diameter, setDiameter] = useState(16);
+    const [diameter, setDiameter] = useState(13);
     const [typeAuto, setTypeAuto] = useState(1);
     const [query, setQuery] = useState('');
 
